@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>LUXURY COMING SOON | Under Construction</title>
-  <!-- Google Fonts: Elegant Serif + Modern Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>HashimiHideout | Web & Database Design</title>
+  <!-- Google Fonts: clean modern sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 (Free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -16,12 +16,10 @@
     }
 
     body {
-      min-height: 100vh;
-      background: radial-gradient(circle at 10% 20%, rgba(10, 10, 20, 0.95), rgba(0, 0, 0, 0.98)), 
-                  url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format') no-repeat center center/cover;
-      background-blend-mode: overlay;
+      background: linear-gradient(135deg, #0a0c10 0%, #12151c 100%);
       font-family: 'Inter', sans-serif;
-      color: #ece9e0;
+      color: #eef2ff;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -29,7 +27,7 @@
       overflow-x: hidden;
     }
 
-    /* luxury glassmorphic overlay + animated grain */
+    /* subtle animated grid pattern (modern tech vibe) */
     body::before {
       content: "";
       position: fixed;
@@ -37,391 +35,353 @@
       left: 0;
       width: 100%;
       height: 100%;
-      backdrop-filter: blur(2px);
-      background: rgba(0, 0, 0, 0.3);
+      background-image: 
+        linear-gradient(rgba(60, 80, 120, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(60, 80, 120, 0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* glowing orb effect */
+    .glow-orb {
+      position: fixed;
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(circle, rgba(0, 200, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+      border-radius: 50%;
+      top: -20vh;
+      right: -20vw;
       z-index: 0;
       pointer-events: none;
+      filter: blur(60px);
     }
 
-    /* subtle animated shine */
-    .shine-overlay {
+    .glow-orb-2 {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 40% 50%, rgba(255,215,150,0.08) 0%, rgba(0,0,0,0) 70%);
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(100, 80, 255, 0.06) 0%, rgba(0, 0, 0, 0) 70%);
+      bottom: -20vh;
+      left: -20vw;
+      border-radius: 50%;
+      z-index: 0;
       pointer-events: none;
-      z-index: 1;
-      animation: slowDrift 18s infinite alternate;
-    }
-
-    @keyframes slowDrift {
-      0% { opacity: 0.4; transform: scale(1);}
-      100% { opacity: 0.9; transform: scale(1.2);}
+      filter: blur(70px);
     }
 
     .container {
       position: relative;
       z-index: 10;
-      max-width: 1300px;
+      max-width: 1100px;
       width: 90%;
       margin: 2rem auto;
-      padding: 2rem 2rem 3rem;
-      backdrop-filter: blur(12px);
-      background: rgba(20, 18, 25, 0.55);
-      border-radius: 64px;
-      border: 1px solid rgba(230, 200, 140, 0.35);
-      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(230, 200, 120, 0.15) inset;
-      transition: all 0.4s ease;
-    }
-
-    /* decorative golden accents */
-    .gold-detail {
-      position: absolute;
-      top: -2px;
-      left: 10%;
-      width: 80%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #e4bc7c, #f5e2b0, #e4bc7c, transparent);
-      border-radius: 100%;
-    }
-
-    .content {
+      padding: 2.5rem 2rem;
       text-align: center;
+      background: rgba(12, 15, 22, 0.55);
+      backdrop-filter: blur(12px);
+      border-radius: 48px;
+      border: 1px solid rgba(72, 120, 200, 0.25);
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.5), 0 0 0 0.5px rgba(100, 160, 255, 0.1) inset;
+      transition: all 0.3s ease;
     }
 
-    .logo-area {
-      margin-bottom: 1.2rem;
-      letter-spacing: 4px;
-    }
-
-    .logo-icon {
+    /* logo & brand */
+    .logo {
       font-size: 3.2rem;
-      color: #e9cf97;
-      text-shadow: 0 0 12px rgba(230, 190, 100, 0.6);
-      display: inline-block;
-      margin-bottom: 0.3rem;
-    }
-
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 9vw, 5.5rem);
-      font-weight: 500;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #FFFFFF 20%, #EAD6A5 50%, #C7A45B 80%);
+      background: linear-gradient(135deg, #FFFFFF, #86b3ff, #5a7eff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       margin-bottom: 0.5rem;
-      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo i {
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      color: #5f8eff;
+      font-size: 2.6rem;
+      filter: drop-shadow(0 0 6px rgba(80, 130, 255, 0.5));
     }
 
     .tagline {
-      font-size: clamp(0.9rem, 3vw, 1.2rem);
-      letter-spacing: 0.3em;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      font-weight: 300;
-      color: #e9cf97;
-      border-bottom: 1px dashed rgba(230, 200, 140, 0.4);
+      letter-spacing: 5px;
+      font-weight: 400;
+      color: #8aa9e0;
+      margin-bottom: 1.8rem;
+      border-top: 1px dashed rgba(100, 150, 255, 0.3);
       display: inline-block;
-      padding-bottom: 6px;
-      margin-bottom: 2rem;
+      padding-top: 12px;
     }
 
-    .luxury-desc {
-      max-width: 700px;
-      margin: 0 auto 2.5rem auto;
+    h1 {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 600;
+      margin: 1rem 0 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      background: rgba(80, 120, 255, 0.15);
+      border: 1px solid rgba(90, 140, 255, 0.5);
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      margin-bottom: 1.8rem;
+      color: #bbd4ff;
+    }
+
+    .message {
+      max-width: 620px;
+      margin: 1.2rem auto 2rem;
       font-size: 1.1rem;
-      line-height: 1.6;
-      font-weight: 300;
-      color: #f0ede8;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      line-height: 1.5;
+      font-weight: 400;
+      color: #cddcff;
     }
 
-    /* Countdown timer - modern luxurious card */
-    .timer-wrapper {
+    /* simple countdown (clean & subtle) */
+    .timer {
       display: flex;
       justify-content: center;
-      gap: 1.8rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
-      margin: 2.5rem 0 3rem;
+      margin: 2rem 0 2.2rem;
     }
 
-    .time-card {
-      background: rgba(12, 10, 18, 0.65);
+    .time-block {
+      background: rgba(20, 25, 38, 0.7);
       backdrop-filter: blur(8px);
-      border-radius: 32px;
-      padding: 1.2rem 1.5rem;
-      min-width: 120px;
-      border: 1px solid rgba(230, 200, 120, 0.5);
-      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255, 215, 130, 0.2) inset;
-      transition: transform 0.2s ease, border-color 0.2s;
-    }
-
-    .time-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(233, 200, 110, 0.9);
-      box-shadow: 0 20px 30px -12px black;
+      border-radius: 24px;
+      padding: 0.8rem 1.2rem;
+      min-width: 85px;
+      border: 1px solid rgba(90, 140, 255, 0.3);
+      transition: all 0.2s;
     }
 
     .time-number {
-      font-size: 3.8rem;
+      font-size: 2.8rem;
       font-weight: 700;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(145deg, #f9e7c2, #e2bc7c);
+      font-family: 'Inter', monospace;
+      letter-spacing: 2px;
+      background: linear-gradient(to bottom, #f0f4ff, #adc6ff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      line-height: 1;
-      letter-spacing: 2px;
+      line-height: 1.1;
     }
 
     .time-label {
-      font-size: 0.85rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
       font-weight: 500;
-      color: #d9c48b;
-      margin-top: 8px;
+      letter-spacing: 1.5px;
+      color: #8ca3da;
+      margin-top: 6px;
     }
 
-    /* progress bar / construction visual */
-    .construction-status {
-      max-width: 500px;
-      margin: 2rem auto 1.5rem;
-    }
-
-    .status-text {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-      font-weight: 300;
-    }
-
-    .progress-bar-bg {
-      background: rgba(30, 28, 35, 0.7);
-      border-radius: 60px;
-      height: 6px;
-      overflow: hidden;
-      backdrop-filter: blur(2px);
-      border: 0.5px solid rgba(210, 180, 100, 0.4);
-    }
-
-    .progress-fill {
-      width: 68%;
-      height: 100%;
-      background: linear-gradient(90deg, #c8a75c, #ebd19b);
-      border-radius: 60px;
-      position: relative;
-      box-shadow: 0 0 6px #f5cf8e;
-      animation: shimmer 1.8s infinite;
-    }
-
-    @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-
-    .contact-luxury {
-      margin: 2rem 0 1rem;
+    /* services hint (simple icons) */
+    .services-hint {
       display: flex;
       justify-content: center;
       gap: 2rem;
       flex-wrap: wrap;
+      margin: 2rem 0 1rem;
+      font-size: 0.85rem;
+      color: #94abe0;
+    }
+
+    .services-hint span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(50, 70, 110, 0.3);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+    }
+
+    .services-hint i {
+      font-size: 0.9rem;
+      color: #6f9eff;
+    }
+
+    /* contact & social (simple) */
+    .contact-line {
+      margin: 2rem 0 1rem;
+      font-size: 0.9rem;
     }
 
     .btn-outline {
       background: transparent;
-      border: 1px solid #e6c68b;
-      padding: 0.8rem 2rem;
+      border: 1px solid #5577dd;
+      padding: 0.6rem 1.5rem;
       border-radius: 40px;
+      font-size: 0.85rem;
       font-weight: 500;
-      font-size: 0.9rem;
-      color: #f2e2bc;
+      color: #ccddff;
       cursor: pointer;
-      transition: all 0.3s;
-      backdrop-filter: blur(8px);
-      letter-spacing: 1px;
-    }
-
-    .btn-outline i {
-      margin-right: 8px;
-      color: #e9cf97;
+      transition: all 0.25s;
+      margin: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-outline:hover {
-      background: rgba(230, 198, 120, 0.2);
-      border-color: #f5deaa;
-      color: #fff6e5;
-      transform: scale(1.02);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background: rgba(85, 119, 221, 0.2);
+      border-color: #8aaeff;
+      color: white;
+      transform: translateY(-2px);
     }
 
     .social-links {
-      margin-top: 2.5rem;
+      margin-top: 2rem;
       display: flex;
       justify-content: center;
-      gap: 1.8rem;
+      gap: 1.5rem;
     }
 
     .social-links a {
-      color: #cfbc8c;
-      font-size: 1.5rem;
+      color: #8aa2da;
+      font-size: 1.3rem;
       transition: all 0.2s;
-      background: rgba(20, 20, 30, 0.5);
-      width: 48px;
-      height: 48px;
+      background: rgba(30, 40, 60, 0.5);
+      width: 40px;
+      height: 40px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      border: 0.5px solid rgba(220, 190, 110, 0.5);
       backdrop-filter: blur(4px);
+      border: 0.5px solid rgba(100, 140, 230, 0.3);
     }
 
     .social-links a:hover {
-      color: #f8e2b0;
-      border-color: #eac985;
-      transform: translateY(-4px);
-      background: rgba(30, 25, 40, 0.8);
+      color: #c6deff;
+      border-color: #6d92e6;
+      transform: translateY(-3px);
+      background: rgba(60, 90, 140, 0.6);
     }
 
     footer {
-      margin-top: 3rem;
-      font-size: 0.75rem;
-      opacity: 0.6;
-      letter-spacing: 1px;
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      opacity: 0.55;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 550px) {
       .container {
-        padding: 1.5rem;
-        border-radius: 48px;
+        padding: 1.8rem;
       }
-      .time-card {
-        min-width: 70px;
-        padding: 0.8rem 0.5rem;
+      .time-block {
+        min-width: 65px;
+        padding: 0.5rem 0.7rem;
       }
       .time-number {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
-      .timer-wrapper {
+      .timer {
         gap: 0.8rem;
       }
-      .btn-outline {
-        padding: 0.5rem 1.2rem;
-        font-size: 0.8rem;
-      }
-    }
-
-    /* elegant cursor / details */
-    .marble-texture {
-      position: absolute;
-      bottom: 5%;
-      right: 3%;
-      font-size: 0.7rem;
-      opacity: 0.25;
-      z-index: 5;
-      pointer-events: none;
     }
   </style>
 </head>
 <body>
-<div class="shine-overlay"></div>
+<div class="glow-orb"></div>
+<div class="glow-orb-2"></div>
+
 <div class="container">
-  <div class="gold-detail"></div>
-  <div class="content">
-    <div class="logo-area">
-      <i class="fas fa-gem logo-icon"></i>
-    </div>
-    <h1>EST. RESERVE</h1>
-    <div class="tagline">Exclusive Domain · Beyond Boundaries</div>
-    <p class="luxury-desc">
-      An extraordinary digital estate is being crafted with precision and elegance. 
-      Our vision merges timeless sophistication with cutting-edge innovation. 
-      Prepare to experience the pinnacle of luxury.
-    </p>
-
-    <!-- COUNTDOWN TIMER: 17 May 2026 -->
-    <div class="timer-wrapper" id="countdownContainer">
-      <div class="time-card">
-        <div class="time-number" id="days">00</div>
-        <div class="time-label">DAYS</div>
-      </div>
-      <div class="time-card">
-        <div class="time-number" id="hours">00</div>
-        <div class="time-label">HOURS</div>
-      </div>
-      <div class="time-card">
-        <div class="time-number" id="minutes">00</div>
-        <div class="time-label">MINUTES</div>
-      </div>
-      <div class="time-card">
-        <div class="time-number" id="seconds">00</div>
-        <div class="time-label">SECONDS</div>
-      </div>
-    </div>
-
-    <div class="construction-status">
-      <div class="status-text">
-        <span><i class="fas fa-crown" style="font-size: 0.7rem;"></i> CONSTRUCTION PROGRESS</span>
-        <span>68% — refinement phase</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-fill"></div>
-      </div>
-    </div>
-
-    <div class="contact-luxury">
-      <button class="btn-outline" id="notifyBtn"><i class="far fa-envelope"></i> NOTIFY ME</button>
-      <button class="btn-outline" id="exploreBtn"><i class="fas fa-champagne-glasses"></i> EARLY ACCESS</button>
-    </div>
-
-    <div class="social-links">
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
-    </div>
-    <footer>
-      <span>© 2025 — LA RÉSERVE | ALL RIGHTS RESERVED</span><br>
-      <span style="font-size: 0.7rem;">Coming to life — May 17, 2026</span>
-    </footer>
+  <!-- Brand -->
+  <div class="logo">
+    <i class="fas fa-database"></i>
+    <span>HashimiHideout</span>
   </div>
-</div>
-<div class="marble-texture">
-  <i class="fas fa-spa"></i> • bespoke experience
+  <div class="tagline">WEB & DATABASE CRAFTSMANSHIP</div>
+
+  <div class="coming-soon-badge">
+    <i class="fas fa-code"></i> launching experience
+  </div>
+
+  <h1>Coming Soon</h1>
+  <div class="message">
+    We're architecting powerful web solutions and robust database systems.  
+    A new era of performance, security, and elegant design is on the horizon.
+  </div>
+
+  <!-- Countdown timer: target 17 May 2026 -->
+  <div class="timer" id="countdownTimer">
+    <div class="time-block">
+      <div class="time-number" id="days">00</div>
+      <div class="time-label">Days</div>
+    </div>
+    <div class="time-block">
+      <div class="time-number" id="hours">00</div>
+      <div class="time-label">Hours</div>
+    </div>
+    <div class="time-block">
+      <div class="time-number" id="minutes">00</div>
+      <div class="time-label">Minutes</div>
+    </div>
+    <div class="time-block">
+      <div class="time-number" id="seconds">00</div>
+      <div class="time-label">Seconds</div>
+    </div>
+  </div>
+
+  <!-- simple service hints -->
+  <div class="services-hint">
+    <span><i class="fas fa-globe"></i> Web Design</span>
+    <span><i class="fas fa-server"></i> Database Architecture</span>
+    <span><i class="fas fa-cloud-upload-alt"></i> Cloud Solutions</span>
+  </div>
+
+  <!-- contact & notify -->
+  <div class="contact-line">
+    <button class="btn-outline" id="notifyBtn"><i class="far fa-bell"></i> Notify Me</button>
+    <button class="btn-outline" id="contactBtn"><i class="far fa-envelope"></i> Contact</button>
+  </div>
+
+  <div class="social-links">
+    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+    <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+  </div>
+  <footer>
+    © 2025 HashimiHideout — Precision in data & design
+  </footer>
 </div>
 
 <script>
-  // Target date: May 17, 2026 00:00:00 (local timezone)
-  // For a global luxurious reveal, we set to local midnight, but to be universal, keep as specified.
-  // Using user's local time: 17 May 2026, 00:00:00
-  const targetDate = new Date(2026, 4, 17, 0, 0, 0); // month is 0-index => 4 = May
+  // Target: May 17, 2026 (00:00:00 local time)
+  const targetDate = new Date(2026, 4, 17, 0, 0, 0);
 
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = targetDate.getTime() - now;
 
     if (distance < 0) {
-      // Timer expired: Show launch mode
+      // Timer expired - show live message
       document.getElementById('days').innerHTML = "00";
       document.getElementById('hours').innerHTML = "00";
       document.getElementById('minutes').innerHTML = "00";
       document.getElementById('seconds').innerHTML = "00";
-      // Optionally change some text to indicate launched
-      const timerWrapper = document.getElementById('countdownContainer');
-      if (timerWrapper && !timerWrapper.hasAttribute('data-launched')) {
-        timerWrapper.setAttribute('data-launched', 'true');
-        const luxuryDesc = document.querySelector('.luxury-desc');
-        if (luxuryDesc) luxuryDesc.innerHTML = 'The wait is over. Experience opulence redefined. Welcome to the next chapter.';
-        const statusFill = document.querySelector('.progress-fill');
-        if (statusFill) statusFill.style.width = '100%';
-        const statusTextSpan = document.querySelector('.status-text span:last-child');
-        if (statusTextSpan) statusTextSpan.innerText = '100% — LIVE';
+      const msgDiv = document.querySelector('.message');
+      if (msgDiv && !msgDiv.hasAttribute('data-live')) {
+        msgDiv.setAttribute('data-live', 'true');
+        msgDiv.innerHTML = "🎉 The hideout is now open! Experience next‑gen web & database solutions. Contact us today.";
       }
       return;
     }
@@ -431,97 +391,64 @@
     const minutes = Math.floor((distance % 3600000) / 60000);
     const seconds = Math.floor((distance % 60000) / 1000);
 
-    // Format with leading zeros
     document.getElementById('days').innerHTML = days < 10 ? '0' + days : days;
     document.getElementById('hours').innerHTML = hours < 10 ? '0' + hours : hours;
     document.getElementById('minutes').innerHTML = minutes < 10 ? '0' + minutes : minutes;
     document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
-
-    // Optional: subtle progress fill dynamic (just based on total days range)
-    // target is approx 17 May 2026, we can compute percentage relative to 1 year before? but not necessary but luxury detail.
-    // For aesthetics, calculate approximate completion based on days left from 500 days initial.
-    // Total time from today to target: let's compute percentage elegantly
-    const startMock = new Date(2025, 0, 1).getTime(); // placeholder but not essential
-    // Better: calculate total duration from current date setpoint. We'll compute fixed starting point for visual (since we don't have official start)
-    // We'll just keep progress fill as 68% fixed? no, let's animate based on days remaining / total days from March 2025 (approx 440 days)
-    // More dynamic: assume initial start date: 1st Feb 2025, total days from start to target (May 17 2026) = 471 days approx.
-    const startDateConst = new Date(2025, 1, 1).getTime(); // feb 1, 2025
-    const totalDuration = targetDate.getTime() - startDateConst;
-    const elapsed = now - startDateConst;
-    let percent = (elapsed / totalDuration) * 100;
-    percent = Math.min(99, Math.max(3, percent));
-    if (distance > 0 && percent > 0 && percent <= 99) {
-      const fillBar = document.querySelector('.progress-fill');
-      if (fillBar) {
-        fillBar.style.width = percent.toFixed(1) + '%';
-      }
-      const statusPercentSpan = document.querySelector('.status-text span:last-child');
-      if (statusPercentSpan && distance > 0) {
-        statusPercentSpan.innerText = Math.floor(percent) + '% — crafting luxury';
-      }
-    }
   }
 
   // initial call
   updateCountdown();
-  // update every second
-  const interval = setInterval(updateCountdown, 1000);
+  const timerInterval = setInterval(updateCountdown, 1000);
 
-  // Optional interactive notifications with elegant alerts (modern style)
-  const notifyBtn = document.getElementById('notifyBtn');
-  const exploreBtn = document.getElementById('exploreBtn');
-
-  function showLuxuryMessage(message) {
-    // Create temporary elegant toast notification
+  // simple notification handlers (clean, non-intrusive)
+  function showMessage(text) {
+    // create elegant micro-toast
     const toast = document.createElement('div');
-    toast.innerText = message;
+    toast.textContent = text;
     toast.style.position = 'fixed';
-    toast.style.bottom = '30px';
+    toast.style.bottom = '24px';
     toast.style.left = '50%';
     toast.style.transform = 'translateX(-50%)';
-    toast.style.background = 'rgba(0, 0, 0, 0.85)';
-    toast.style.backdropFilter = 'blur(20px)';
-    toast.style.color = '#f2e6cf';
-    toast.style.padding = '14px 28px';
+    toast.style.backgroundColor = '#1e2438';
+    toast.style.color = '#e0edff';
+    toast.style.padding = '10px 24px';
     toast.style.borderRadius = '60px';
-    toast.style.border = '1px solid rgba(230, 200, 130, 0.7)';
-    toast.style.fontFamily = "'Inter', sans-serif";
+    toast.style.fontSize = '0.85rem';
     toast.style.fontWeight = '500';
-    toast.style.fontSize = '0.9rem';
+    toast.style.fontFamily = "'Inter', sans-serif";
+    toast.style.backdropFilter = 'blur(16px)';
+    toast.style.border = '1px solid #4a6ecf';
+    toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.3)';
     toast.style.zIndex = '1000';
-    toast.style.letterSpacing = '0.5px';
-    toast.style.boxShadow = '0 12px 28px rgba(0,0,0,0.4)';
-    toast.style.backdropFilter = 'blur(12px)';
+    toast.style.letterSpacing = '0.3px';
     document.body.appendChild(toast);
     setTimeout(() => {
       toast.style.opacity = '0';
-      toast.style.transition = 'opacity 0.4s';
-      setTimeout(() => {
-        if (toast.parentNode) toast.parentNode.removeChild(toast);
-      }, 400);
-    }, 2800);
+      toast.style.transition = 'opacity 0.3s';
+      setTimeout(() => toast.remove(), 400);
+    }, 2500);
   }
 
+  const notifyBtn = document.getElementById('notifyBtn');
+  const contactBtn = document.getElementById('contactBtn');
+
   notifyBtn.addEventListener('click', () => {
-    showLuxuryMessage('✨ We’ll notify you the moment the gates open. A private invitation awaits.');
+    showMessage('🔔 We’ll notify you when HashimiHideout launches. Stay tuned!');
   });
 
-  exploreBtn.addEventListener('click', () => {
-    showLuxuryMessage('🍾 Early access reserved exclusively for our VIP circle. Check your console for a taste.');
-    console.log('%c✨ LA RÉSERVE — EARLY ACCESS PORTAL ✨', 'color: #e9cf97; font-size: 16px; font-weight: bold;');
-    console.log('Your priority request has been logged. We will contact you before the grand reveal.');
+  contactBtn.addEventListener('click', () => {
+    showMessage('📧 Reach us at hello@hashimihideout.com — early inquiries welcome.');
+    console.log('HashimiHideout | Contact request: hello@hashimihideout.com');
   });
 
-  // Additional hover micro-interactions for time-cards just for elegance
-  const cards = document.querySelectorAll('.time-card');
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.transition = 'transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+  // optional smooth hover effect for buttons
+  const btns = document.querySelectorAll('.btn-outline');
+  btns.forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+      btn.style.transition = 'all 0.2s ease';
     });
   });
-
-  // Handle any resize & preserve luxurious style
-  window.addEventListener('resize', () => {});
 </script>
 </body>
 </html>
