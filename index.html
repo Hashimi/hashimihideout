@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>HashimiHideout | Web & Database Design</title>
+  <title>HashimiHideout | Spring Launch</title>
   <!-- Google Fonts: clean modern sans -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 (Free) -->
@@ -16,9 +16,8 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0a0c10 0%, #12151c 100%);
+      background: linear-gradient(145deg, #e0f7fa 0%, #b2ebf2 40%, #80deea 100%);
       font-family: 'Inter', sans-serif;
-      color: #eef2ff;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -27,345 +26,347 @@
       overflow-x: hidden;
     }
 
-    /* subtle animated grid pattern (modern tech vibe) */
+    /* subtle wave pattern overlay */
     body::before {
       content: "";
       position: fixed;
-      top: 0;
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(rgba(60, 80, 120, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(60, 80, 120, 0.08) 1px, transparent 1px);
-      background-size: 40px 40px;
+      height: 180px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,64L80,58.7C160,53,320,43,480,48C640,53,800,75,960,80C1120,85,1280,75,1360,69.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" fill="rgba(255,255,255,0.25)"/></svg>') repeat-x;
+      background-size: 1200px 100px;
+      opacity: 0.5;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* glowing orb effect */
-    .glow-orb {
+    /* fluffy cloud / spring elements */
+    .cloud {
       position: fixed;
-      width: 60vw;
-      height: 60vw;
-      background: radial-gradient(circle, rgba(0, 200, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
-      border-radius: 50%;
-      top: -20vh;
-      right: -20vw;
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 1000px;
+      filter: blur(20px);
       z-index: 0;
       pointer-events: none;
-      filter: blur(60px);
     }
 
-    .glow-orb-2 {
-      position: fixed;
-      width: 50vw;
-      height: 50vw;
-      background: radial-gradient(circle, rgba(100, 80, 255, 0.06) 0%, rgba(0, 0, 0, 0) 70%);
-      bottom: -20vh;
-      left: -20vw;
-      border-radius: 50%;
-      z-index: 0;
-      pointer-events: none;
-      filter: blur(70px);
+    .cloud1 {
+      width: 280px;
+      height: 140px;
+      top: 10%;
+      left: -50px;
+      background: #ffffffaa;
+    }
+    .cloud2 {
+      width: 380px;
+      height: 180px;
+      bottom: 5%;
+      right: -80px;
+      background: #f0fcffcc;
+    }
+    .cloud3 {
+      width: 200px;
+      height: 100px;
+      top: 25%;
+      right: 10%;
+      background: #ffffffb3;
     }
 
+    /* main card: simple, bright, ocean glass */
     .container {
       position: relative;
       z-index: 10;
-      max-width: 1100px;
+      max-width: 800px;
       width: 90%;
       margin: 2rem auto;
       padding: 2.5rem 2rem;
       text-align: center;
-      background: rgba(12, 15, 22, 0.55);
+      background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(12px);
-      border-radius: 48px;
-      border: 1px solid rgba(72, 120, 200, 0.25);
-      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.5), 0 0 0 0.5px rgba(100, 160, 255, 0.1) inset;
-      transition: all 0.3s ease;
+      border-radius: 56px;
+      box-shadow: 0 20px 40px -12px rgba(0, 80, 100, 0.25), 0 0 0 1px rgba(255,255,240,0.6) inset;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255,250,210,0.8);
     }
 
-    /* logo & brand */
-    .logo {
-      font-size: 3.2rem;
+    /* brand area */
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .brand i {
+      font-size: 2.8rem;
+      color: #0288d1;
+      filter: drop-shadow(0 4px 8px rgba(0,160,200,0.2));
+    }
+
+    .brand h2 {
+      font-size: 2rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #FFFFFF, #86b3ff, #5a7eff);
+      letter-spacing: -0.3px;
+      background: linear-gradient(125deg, #01579b, #00acc1, #4fc3f7);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 0.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
     }
 
-    .logo i {
-      background: none;
-      -webkit-background-clip: unset;
-      background-clip: unset;
-      color: #5f8eff;
-      font-size: 2.6rem;
-      filter: drop-shadow(0 0 6px rgba(80, 130, 255, 0.5));
-    }
-
-    .tagline {
-      font-size: 0.9rem;
+    .sub {
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 5px;
-      font-weight: 400;
-      color: #8aa9e0;
-      margin-bottom: 1.8rem;
-      border-top: 1px dashed rgba(100, 150, 255, 0.3);
-      display: inline-block;
-      padding-top: 12px;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 8vw, 3.5rem);
-      font-weight: 600;
-      margin: 1rem 0 0.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    .coming-soon-badge {
-      display: inline-block;
-      background: rgba(80, 120, 255, 0.15);
-      border: 1px solid rgba(90, 140, 255, 0.5);
-      padding: 0.4rem 1.2rem;
-      border-radius: 60px;
-      font-size: 0.8rem;
+      letter-spacing: 3px;
       font-weight: 500;
-      backdrop-filter: blur(4px);
-      margin-bottom: 1.8rem;
-      color: #bbd4ff;
+      color: #0277bd;
+      background: rgba(255,255,245,0.6);
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(2px);
     }
 
-    .message {
-      max-width: 620px;
-      margin: 1.2rem auto 2rem;
-      font-size: 1.1rem;
-      line-height: 1.5;
-      font-weight: 400;
-      color: #cddcff;
+    /* coming soon message - simple and clear */
+    .coming-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #0b3b4f;
+      letter-spacing: -0.5px;
+      margin: 0.8rem 0 0.5rem;
+      text-shadow: 0 2px 5px rgba(255,255,200,0.6);
     }
 
-    /* simple countdown (clean & subtle) */
+    .desc {
+      font-size: 1rem;
+      line-height: 1.45;
+      color: #0a4c6e;
+      max-width: 500px;
+      margin: 0.5rem auto 1.2rem;
+      font-weight: 500;
+      background: rgba(255, 248, 225, 0.5);
+      padding: 0.3rem 1rem;
+      border-radius: 80px;
+      display: inline-block;
+      backdrop-filter: blur(2px);
+    }
+
+    /* countdown - minimal & fresh */
     .timer {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
       flex-wrap: wrap;
-      margin: 2rem 0 2.2rem;
+      margin: 1.5rem 0 1.8rem;
     }
 
-    .time-block {
-      background: rgba(20, 25, 38, 0.7);
-      backdrop-filter: blur(8px);
-      border-radius: 24px;
-      padding: 0.8rem 1.2rem;
-      min-width: 85px;
-      border: 1px solid rgba(90, 140, 255, 0.3);
-      transition: all 0.2s;
+    .time-card {
+      background: rgba(255, 255, 250, 0.75);
+      backdrop-filter: blur(6px);
+      border-radius: 40px;
+      padding: 0.8rem 1rem;
+      min-width: 80px;
+      border: 1px solid #ffffffaa;
+      box-shadow: 0 8px 18px -8px rgba(0, 80, 100, 0.2);
     }
 
     .time-number {
-      font-size: 2.8rem;
-      font-weight: 700;
+      font-size: 2.5rem;
+      font-weight: 800;
       font-family: 'Inter', monospace;
+      color: #0277bd;
+      line-height: 1;
       letter-spacing: 2px;
-      background: linear-gradient(to bottom, #f0f4ff, #adc6ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1.1;
     }
 
     .time-label {
       font-size: 0.7rem;
       text-transform: uppercase;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      color: #8ca3da;
+      font-weight: 600;
+      color: #2c7da0;
       margin-top: 6px;
+      letter-spacing: 1px;
     }
 
-    /* services hint (simple icons) */
-    .services-hint {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin: 2rem 0 1rem;
-      font-size: 0.85rem;
-      color: #94abe0;
-    }
-
-    .services-hint span {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(50, 70, 110, 0.3);
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      backdrop-filter: blur(4px);
-    }
-
-    .services-hint i {
-      font-size: 0.9rem;
-      color: #6f9eff;
-    }
-
-    /* contact & social (simple) */
-    .contact-line {
-      margin: 2rem 0 1rem;
-      font-size: 0.9rem;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #5577dd;
-      padding: 0.6rem 1.5rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #ccddff;
-      cursor: pointer;
-      transition: all 0.25s;
-      margin: 0.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-outline:hover {
-      background: rgba(85, 119, 221, 0.2);
-      border-color: #8aaeff;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .social-links {
-      margin-top: 2rem;
+    /* simple icons row (services) */
+    .service-row {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0 1rem;
     }
 
-    .social-links a {
-      color: #8aa2da;
+    .service-chip {
+      background: rgba(255,255,245,0.7);
+      border-radius: 100px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #006994;
+      backdrop-filter: blur(2px);
+      border: 0.5px solid #b9e6f0;
+    }
+
+    .service-chip i {
+      margin-right: 8px;
+      color: #0097b2;
+    }
+
+    /* buttons - bright spring */
+    .btn-group {
+      margin: 1.2rem 0 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-light {
+      background: rgba(255, 255, 245, 0.85);
+      border: none;
+      padding: 0.6rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #01579b;
+      cursor: pointer;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      font-family: 'Inter', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #ffffffcc;
+    }
+
+    .btn-light:hover {
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0, 120, 150, 0.15);
+      color: #003f5f;
+      border-color: #ade8f4;
+    }
+
+    .social {
+      margin: 1.5rem 0 0.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.4rem;
+    }
+
+    .social a {
+      color: #2c7da0;
       font-size: 1.3rem;
-      transition: all 0.2s;
-      background: rgba(30, 40, 60, 0.5);
-      width: 40px;
-      height: 40px;
+      transition: 0.2s;
+      background: rgba(255,255,250,0.6);
+      width: 38px;
+      height: 38px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       backdrop-filter: blur(4px);
-      border: 0.5px solid rgba(100, 140, 230, 0.3);
     }
 
-    .social-links a:hover {
-      color: #c6deff;
-      border-color: #6d92e6;
+    .social a:hover {
+      color: #0284c7;
+      background: white;
       transform: translateY(-3px);
-      background: rgba(60, 90, 140, 0.6);
     }
 
     footer {
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       font-size: 0.7rem;
-      opacity: 0.55;
+      color: #2c6e8f;
+      opacity: 0.7;
     }
 
     @media (max-width: 550px) {
       .container {
-        padding: 1.8rem;
+        padding: 1.5rem;
       }
-      .time-block {
+      .time-card {
         min-width: 65px;
-        padding: 0.5rem 0.7rem;
+        padding: 0.5rem 0.6rem;
       }
       .time-number {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
-      .timer {
-        gap: 0.8rem;
+      .coming-title {
+        font-size: 2.2rem;
       }
     }
   </style>
 </head>
 <body>
-<div class="glow-orb"></div>
-<div class="glow-orb-2"></div>
+<!-- spring / ocean decorative clouds -->
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
 
 <div class="container">
-  <!-- Brand -->
-  <div class="logo">
+  <!-- brand -->
+  <div class="brand">
     <i class="fas fa-database"></i>
-    <span>HashimiHideout</span>
+    <h2>HashimiHideout</h2>
   </div>
-  <div class="tagline">WEB & DATABASE CRAFTSMANSHIP</div>
+  <div class="sub">web & database design</div>
 
-  <div class="coming-soon-badge">
-    <i class="fas fa-code"></i> launching experience
-  </div>
+  <!-- main coming soon message: simple & bright -->
+  <div class="coming-title">🌸 Coming Soon 🌊</div>
+  <div class="desc">Fresh ideas, modern code, and ocean‑calm databases.</div>
 
-  <h1>Coming Soon</h1>
-  <div class="message">
-    We're architecting powerful web solutions and robust database systems.  
-    A new era of performance, security, and elegant design is on the horizon.
-  </div>
-
-  <!-- Countdown timer: target 17 May 2026 -->
-  <div class="timer" id="countdownTimer">
-    <div class="time-block">
+  <!-- countdown timer to 17 May 2026 -->
+  <div class="timer">
+    <div class="time-card">
       <div class="time-number" id="days">00</div>
       <div class="time-label">Days</div>
     </div>
-    <div class="time-block">
+    <div class="time-card">
       <div class="time-number" id="hours">00</div>
       <div class="time-label">Hours</div>
     </div>
-    <div class="time-block">
+    <div class="time-card">
       <div class="time-number" id="minutes">00</div>
       <div class="time-label">Minutes</div>
     </div>
-    <div class="time-block">
+    <div class="time-card">
       <div class="time-number" id="seconds">00</div>
       <div class="time-label">Seconds</div>
     </div>
   </div>
 
-  <!-- simple service hints -->
-  <div class="services-hint">
-    <span><i class="fas fa-globe"></i> Web Design</span>
-    <span><i class="fas fa-server"></i> Database Architecture</span>
-    <span><i class="fas fa-cloud-upload-alt"></i> Cloud Solutions</span>
+  <!-- simple service chips -->
+  <div class="service-row">
+    <div class="service-chip"><i class="fas fa-code"></i> Web Design</div>
+    <div class="service-chip"><i class="fas fa-table"></i> Database Dev</div>
+    <div class="service-chip"><i class="fas fa-cloud-sun"></i> Spring Launch</div>
   </div>
 
-  <!-- contact & notify -->
-  <div class="contact-line">
-    <button class="btn-outline" id="notifyBtn"><i class="far fa-bell"></i> Notify Me</button>
-    <button class="btn-outline" id="contactBtn"><i class="far fa-envelope"></i> Contact</button>
+  <!-- interaction buttons -->
+  <div class="btn-group">
+    <button class="btn-light" id="notifyBtn"><i class="far fa-bell"></i> Notify me</button>
+    <button class="btn-light" id="contactBtn"><i class="far fa-paper-plane"></i> Say hello</button>
   </div>
 
-  <div class="social-links">
+  <div class="social">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
     <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
     <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-    <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
   </div>
   <footer>
-    © 2025 HashimiHideout — Precision in data & design
+    <i class="fas fa-water"></i> spring 2026 — ready to flow
   </footer>
 </div>
 
 <script>
-  // Target: May 17, 2026 (00:00:00 local time)
+  // Target date: May 17, 2026 (local midnight)
   const targetDate = new Date(2026, 4, 17, 0, 0, 0);
 
   function updateCountdown() {
@@ -373,15 +374,14 @@
     const distance = targetDate.getTime() - now;
 
     if (distance < 0) {
-      // Timer expired - show live message
       document.getElementById('days').innerHTML = "00";
       document.getElementById('hours').innerHTML = "00";
       document.getElementById('minutes').innerHTML = "00";
       document.getElementById('seconds').innerHTML = "00";
-      const msgDiv = document.querySelector('.message');
-      if (msgDiv && !msgDiv.hasAttribute('data-live')) {
-        msgDiv.setAttribute('data-live', 'true');
-        msgDiv.innerHTML = "🎉 The hideout is now open! Experience next‑gen web & database solutions. Contact us today.";
+      const descDiv = document.querySelector('.desc');
+      if (descDiv && !descDiv.hasAttribute('data-live')) {
+        descDiv.setAttribute('data-live', 'true');
+        descDiv.innerHTML = "✨ The hideout is now open! Dive into web & database excellence. ✨";
       }
       return;
     }
@@ -397,58 +397,82 @@
     document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
   }
 
-  // initial call
   updateCountdown();
-  const timerInterval = setInterval(updateCountdown, 1000);
+  setInterval(updateCountdown, 1000);
 
-  // simple notification handlers (clean, non-intrusive)
-  function showMessage(text) {
-    // create elegant micro-toast
+  // simple, bright feedback (no console clutter, just friendly notifications)
+  function showSpringMessage(msg) {
     const toast = document.createElement('div');
-    toast.textContent = text;
+    toast.innerText = msg;
     toast.style.position = 'fixed';
-    toast.style.bottom = '24px';
+    toast.style.bottom = '20px';
     toast.style.left = '50%';
     toast.style.transform = 'translateX(-50%)';
-    toast.style.backgroundColor = '#1e2438';
-    toast.style.color = '#e0edff';
+    toast.style.background = 'rgba(255, 255, 250, 0.95)';
+    toast.style.backdropFilter = 'blur(12px)';
+    toast.style.color = '#0369a1';
     toast.style.padding = '10px 24px';
     toast.style.borderRadius = '60px';
     toast.style.fontSize = '0.85rem';
     toast.style.fontWeight = '500';
     toast.style.fontFamily = "'Inter', sans-serif";
-    toast.style.backdropFilter = 'blur(16px)';
-    toast.style.border = '1px solid #4a6ecf';
-    toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.3)';
-    toast.style.zIndex = '1000';
+    toast.style.border = '1px solid #7dd3fc';
+    toast.style.boxShadow = '0 6px 18px rgba(0,120,140,0.2)';
+    toast.style.zIndex = '2000';
     toast.style.letterSpacing = '0.3px';
     document.body.appendChild(toast);
     setTimeout(() => {
       toast.style.opacity = '0';
       toast.style.transition = 'opacity 0.3s';
-      setTimeout(() => toast.remove(), 400);
-    }, 2500);
+      setTimeout(() => toast.remove(), 350);
+    }, 2400);
   }
 
   const notifyBtn = document.getElementById('notifyBtn');
   const contactBtn = document.getElementById('contactBtn');
 
   notifyBtn.addEventListener('click', () => {
-    showMessage('🔔 We’ll notify you when HashimiHideout launches. Stay tuned!');
+    showSpringMessage('🐚 We’ll send you a note when HashimiHideout launches!');
   });
 
   contactBtn.addEventListener('click', () => {
-    showMessage('📧 Reach us at hello@hashimihideout.com — early inquiries welcome.');
-    console.log('HashimiHideout | Contact request: hello@hashimihideout.com');
+    showSpringMessage('🌊 Reach out: hello@hashimihideout.com — we’d love to connect.');
   });
 
-  // optional smooth hover effect for buttons
-  const btns = document.querySelectorAll('.btn-outline');
+  // optional tiny ripple effect on buttons (just for spring fun)
+  const btns = document.querySelectorAll('.btn-light');
   btns.forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-      btn.style.transition = 'all 0.2s ease';
+    btn.addEventListener('click', function(e) {
+      let ripple = document.createElement('span');
+      ripple.classList.add('ripple');
+      ripple.style.position = 'absolute';
+      ripple.style.backgroundColor = 'rgba(2, 136, 209, 0.2)';
+      ripple.style.borderRadius = '50%';
+      ripple.style.transform = 'scale(0)';
+      ripple.style.animation = 'rippleAnim 0.5s linear';
+      ripple.style.width = '40px';
+      ripple.style.height = '40px';
+      ripple.style.left = e.clientX - btn.offsetLeft - 20 + 'px';
+      ripple.style.top = e.clientY - btn.offsetTop - 20 + 'px';
+      ripple.style.pointerEvents = 'none';
+      btn.style.position = 'relative';
+      btn.style.overflow = 'hidden';
+      btn.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 500);
     });
   });
+
+  // add keyframes for ripple if not present
+  if (!document.querySelector('#rippleStyle')) {
+    const styleSheet = document.createElement('style');
+    styleSheet.id = 'rippleStyle';
+    styleSheet.textContent = `
+      @keyframes rippleAnim {
+        to { transform: scale(6); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(styleSheet);
+  }
 </script>
 </body>
 </html>
